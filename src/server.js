@@ -5,6 +5,8 @@ import express from "express";
 import usuarioRoutes from "./routes/usuario.routes.js"
 import livrosRoutes from "./routes/livros.routes.js";
 import avaliacoesRoutes from "./routes/avaliacoes.routes.js";
+import reservasRouter from "./routes/reservas.routes.js";
+import favoritosRouter from "./routes/favoritos.routes.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -18,6 +20,8 @@ app.get("/",(req, res)=>{
 app.use("/usuarios",usuarioRoutes)
 app.use("/livros", livrosRoutes)
 app.use("/avaliacoes", avaliacoesRoutes)
+app.use("/reservas", reservasRouter);
+app.use("/favoritos", favoritosRouter);
 
 
 // ============================

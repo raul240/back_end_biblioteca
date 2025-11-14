@@ -50,3 +50,24 @@ VALUES
 (1, 4, 5.0, 'Leitura obrigatória para todo desenvolvedor.'),
 (2, 3, 3.5, 'Ideia interessante, mas um pouco confusa em alguns trechos.'),
 (3, 5, 4.8, 'Um clássico atemporal, narrativa impecável.');
+
+CREATE TABLE IF NOT EXISTS reservas (
+    reserva_id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    livro_id INT NOT NULL,
+    data_retirada DATE NOT NULL,
+    data_devolucao DATE NOT NULL,
+    confirmado_email BOOLEAN DEFAULT FALSE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES livros(livro_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS favoritos (
+    favorito_id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    livro_id INT NOT NULL,
+    data_favoritado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES livros(livro_id) ON DELETE CASCADE
+);

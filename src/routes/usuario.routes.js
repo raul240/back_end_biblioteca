@@ -4,7 +4,7 @@ import { criarUsuario } from "../controllers/usuario.controller.js";
 import { obterUsuario } from "../controllers/usuario.controller.js";
 import { atualizarUsuario } from "../controllers/usuario.controller.js";
 import { apagarUsuario } from "../controllers/usuario.controller.js";
-const router = express();
+const router = express.Router();
 
 
 router.get("/",listarUsuarios);
